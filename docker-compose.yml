@@ -3,7 +3,7 @@ version: "3.8"
 services:
   go-app:
     build:
-      context: ./go-app
+      context: .
       dockerfile: ./docker/Dockerfile.backend
     ports:
       - "8080:8080"
@@ -17,9 +17,8 @@ services:
 
   next-app:
     build:
-      context: ./next-app
+      context: .
       dockerfile: ./docker/Dockerfile.frontend
-      target: frontend-final
     ports:
       - "3000:3000"
     volumes:

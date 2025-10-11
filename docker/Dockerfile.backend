@@ -1,12 +1,12 @@
 # Go Dockerfile
-FROM golang:1.20
+FROM golang:1.23
 
 WORKDIR /app
 
-COPY . .
+COPY go-app/ .
 
 RUN go mod tidy
 
 RUN go build -o main .
 
-CMD ["./main"]next-go-task-db
+CMD ["./main"]
