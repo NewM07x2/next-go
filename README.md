@@ -34,15 +34,15 @@ docker-compose up --build -d
 ### 3. サーバーサイドの初期設定
 
 ```bash
-docker-compose exec backend go mod init next-go-task
-docker-compose exec backend go mod tidy
+docker-compose exec go-app go mod init next-go-task
+docker-compose exec go-app go mod tidy
 ```
 
 ### 4. フロントエンドのセットアップ
 
 ```bash
-docker-compose exec react-app npm install
-docker-compose exec react-app npm start
+docker-compose exec next-app npm install
+docker-compose exec next-app npm start
 exit
 ```
 
@@ -51,7 +51,7 @@ exit
 PostgreSQLの初期化スクリプトを実行します。
 
 ```bash
-docker-compose exec db psql -U postgres -d task_db -f /docker-entrypoint-initdb.d/init.sql
+docker-compose exec db psql -U postgres -d next-go-task-db_data -f /docker-entrypoint-initdb.d/init.sql
 ```
 
 ### 6. キャッシュのクリア
