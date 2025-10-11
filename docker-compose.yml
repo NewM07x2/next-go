@@ -38,5 +38,17 @@ services:
     volumes:
       - next-go-task-db_data:/var/lib/postgresql/data
 
+  # 本番環境用のNginx設定
+  # nginx:
+  #   image: nginx:latest
+  #   ports:
+  #     - "80:80"
+  #   volumes:
+  #     - ./nginx.conf:/etc/nginx/nginx.conf
+  #     - ./next-app/out:/usr/share/nginx/html
+  #   depends_on:
+  #     - frontend
+  #     - backend
+
 volumes:
   next-go-task-db_data:
