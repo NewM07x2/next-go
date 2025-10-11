@@ -1,7 +1,7 @@
 version: "3.8"
 
 services:
-  backend:
+  go-app:
     build:
       context: ./go-app
       dockerfile: ./docker/Dockerfile.backend
@@ -15,7 +15,7 @@ services:
       - DB_PASSWORD=postgres
       - DB_NAME=next-go-task-db
 
-  frontend:
+  next-app:
     build:
       context: ./next-app
       dockerfile: ./docker/Dockerfile.frontend
