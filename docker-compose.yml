@@ -3,12 +3,12 @@ version: "3.8"
 services:
   go-app:
     build:
-      context: .
+      context: ./go-app
       dockerfile: ./docker/Dockerfile.backend
     ports:
       - "8080:8080"
     volumes:
-      - ./go-app/app:/app
+      - ./go-app:/app
     environment:
       - DB_HOST=db
       - DB_USER=postgres
@@ -17,12 +17,12 @@ services:
 
   next-app:
     build:
-      context: .
+      context: ./next-app
       dockerfile: ./docker/Dockerfile.frontend
     ports:
       - "3000:3000"
     volumes:
-      - ./next-app:/app
+      - ./next-app:/usr/src/app
     environment:
       - NEXT_PUBLIC_API_URL=http://localhost:8080
 

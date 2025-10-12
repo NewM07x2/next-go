@@ -1,12 +1,15 @@
 # Go Dockerfile
-FROM golang:1.23
+FROM golang:1.20
 
 WORKDIR /app
 
-COPY go-app/app/ .
+COPY ./go-app/go.mod ./
+COPY ./go-app/go.sum ./
 
-RUN go mod tidy
+RUN go mod download
+
+COPY ./go-app ./
 
 RUN go build -o main .
 
-CMD ["/app/main"]
+CMD ["./main"]
