@@ -64,6 +64,49 @@
 
 ---
 
+## フォルダ構成
+
+以下は `next-app` のフォルダ構成です：
+
+```plaintext
+next-app/
+├── .gitignore           # Gitの無視設定
+├── codegen.ts           # GraphQL Code Generatorの設定ファイル
+├── eslint.config.mjs    # ESLintの設定ファイル
+├── next-env.d.ts        # Next.jsの型定義
+├── next.config.ts       # Next.jsの設定ファイル
+├── package.json         # プロジェクトの依存関係とスクリプト
+├── postcss.config.mjs   # PostCSSの設定ファイル
+├── public/              # 公開用の静的ファイル
+├── src/                 # ソースコード
+│   ├── client/          # クライアントサイドのコード
+│   │   ├── app/         # アプリケーションのエントリポイント
+│   │   ├── components/  # Reactコンポーネント
+│   │   │   ├── CountryList.tsx
+│   │   │   ├── Header.tsx
+│   │   ├── lib/         # クライアント用のライブラリ
+│   │   │   ├── SampleLib.ts
+│   │   ├── urql/        # urql関連の設定
+│   ├── server/          # サーバーサイドのコード
+│   │   ├── api/         # APIエンドポイント
+│   │   │   ├── SampleApi.ts
+│   │   ├── prisma/      # Prisma関連ファイル
+│   │   │   ├── SamplePrisma.ts
+├── tsconfig.json        # TypeScriptの設定ファイル
+```
+
+各フォルダとファイルの役割：
+
+- **codegen.ts**: GraphQL Code Generatorの設定を管理します。
+- **eslint.config.mjs**: コード品質を保つためのESLint設定。
+- **next-env.d.ts**: Next.jsの型定義ファイル。
+- **next.config.ts**: Next.jsのカスタム設定。
+- **src/client**: フロントエンドのUIやクライアントサイドのロジックを含みます。
+- **src/server**: サーバーサイドのロジックやAPIエンドポイントを含みます。
+- **src/server/prisma**: Prisma関連の設定やスキーマを格納します。
+
+---
+
 ## サーバーの起動と動作確認
 
 1. **サーバーの起動**
