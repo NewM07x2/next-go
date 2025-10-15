@@ -1,7 +1,7 @@
 'use client';
 import './globals.css';
 import { Provider } from 'urql';
-import { client } from '../lib/urqlClient';
+import { client } from '../urql/urqlClient';
 import Header from '../components/Header';
 
 export const metadata = {
