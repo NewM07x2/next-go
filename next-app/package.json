@@ -1,33 +1,33 @@
 {
-  "name": "next-app",
+  "name": "sample",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+    "dev": "next dev",
+    "build": "next build",
     "start": "next start",
-    "lint": "eslint",
-    "codegen": "graphql-codegen --config codegen.ts"
+    "lint": "next lint"
   },
   "dependencies": {
-    "graphql": "^16.11.0",
-    "next": "15.5.4",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "urql": "^5.0.1"
+    "@prisma/client": "^6.4.1",
+    "@reduxjs/toolkit": "^2.2.7",
+    "@storybook/react": "^8.2.9",
+    "@storybook/test": "^8.2.9",
+    "next": "14.1.0",
+    "prisma": "^6.4.1",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-redux": "^9.1.2"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@graphql-codegen/cli": "6.0.0",
-    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "15.5.4",
-    "tailwindcss": "^4",
-    "typescript": "^5",
-    "@graphql-codegen/introspection": "5.0.0",
-    "@graphql-codegen/client-preset": "5.1.0"
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^8",
+    "eslint-config-next": "14.1.0",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13",
+    "typescript": "^5"
   }
 }
