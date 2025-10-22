@@ -43,3 +43,6 @@ exit status 1
 (base) mnitta@MasatonoMacBook-Pro go-app % go run github.com/99designs/gqlgen generate
 unable to open schema: open schema.graphql: no such file or directory
 exit status 1
+
+cd /Users/mnitta/devlop/next-go/go-app
+go run github.com/99designs/gqlgen generate --config pkg/graph/gqlgen.yml
