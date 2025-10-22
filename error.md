@@ -46,3 +46,19 @@ exit status 1
 
 cd /Users/mnitta/devlop/next-go/go-app
 go run github.com/99designs/gqlgen generate --config pkg/graph/gqlgen.yml
+
+
+ => ERROR [go-app builder 6/6] RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo  0.4s
+ => CACHED [next-app 2/4] WORKDIR /app                                                      0.0s
+ => CACHED [next-app 3/4] COPY package*.json ./                                             0.0s
+ => CACHED [next-app 4/4] COPY . .                                                          0.0s
+ => [next-app] exporting to image                                                           0.0s
+ => => exporting layers                                                                     0.0s
+ => => writing image sha256:078b8979098aad7635e21ca908a0137f9a845e4235c22ae607b48476a7d977  0.0s
+ => => naming to docker.io/library/next-go-next-app                                         0.0s
+ => [next-app] resolving provenance for metadata file                                       0.0s
+------
+ > [go-app builder 6/6] RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main ./cmd/api:
+0.257 internal/router/router.go:7:2: package next-go-sample/pkg/graph/generated is not in std (/usr/local/go/src/next-go-sample/pkg/graph/generated)
+------
+failed to solve: process "/bin/sh -c CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main ./cmd/api" did not complete successfully: exit code: 1
