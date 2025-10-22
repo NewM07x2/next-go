@@ -157,7 +157,7 @@ Content-Type: application/json
 | `DB_HOST` | localhost | データベースホスト |
 | `DB_USER` | postgres | データベースユーザー |
 | `DB_PASSWORD` | postgres | データベースパスワード |
-| `DB_NAME` | next-go-task-db | データベース名 |
+| `DB_NAME` | next-go-sample-db | データベース名 |
 | `FRONTEND_URL` | http://localhost:3000 | フロントエンドURL (CORS用) |
 
 ---

@@ -2,8 +2,8 @@ package service
 
 import (
 	"context"
-	"next-go-task/internal/domain"
-	"next-go-task/internal/repository"
+	"next-go-sample/internal/domain"
+	"next-go-sample/internal/repository"
 )
 
 // SampleService handles business logic for samples

@@ -1,4 +1,4 @@
-module next-go-task
+module next-go-sample
 
 go 1.23.0
 

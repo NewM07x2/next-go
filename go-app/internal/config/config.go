@@ -21,7 +21,7 @@ func Load() *Config {
 		DBHost:   getEnv("DB_HOST", "localhost"),
 		DBUser:   getEnv("DB_USER", "postgres"),
 		DBPass:   getEnv("DB_PASSWORD", "postgres"),
-		DBName:   getEnv("DB_NAME", "next-go-task-db"),
+		DBName:   getEnv("DB_NAME", "next-go-sample-db"),
 		FrontURL: getEnv("FRONTEND_URL", "http://localhost:3000"),
 	}
 }

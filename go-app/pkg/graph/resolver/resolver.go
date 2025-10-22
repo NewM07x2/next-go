@@ -5,7 +5,7 @@ package resolver
 // It serves as dependency injection for your app, add any dependencies you require here.
 
 import (
-	"next-go-task/internal/service"
+	"next-go-sample/internal/service"
 )
 
 type Resolver struct {

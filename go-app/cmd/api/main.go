@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"log"
 
-	"next-go-task/internal/config"
-	"next-go-task/internal/repository"
-	"next-go-task/internal/router"
-	"next-go-task/internal/service"
+	"next-go-sample/internal/config"
+	"next-go-sample/internal/repository"
+	"next-go-sample/internal/router"
+	"next-go-sample/internal/service"
 )
 
 func main() {

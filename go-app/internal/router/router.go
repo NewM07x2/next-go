@@ -1,11 +1,11 @@
 package router
 
 import (
-	"next-go-task/internal/config"
-	"next-go-task/internal/handler"
-	"next-go-task/internal/service"
-	"next-go-task/pkg/graph/generated"
-	"next-go-task/pkg/graph/resolver"
+	"next-go-sample/internal/config"
+	"next-go-sample/internal/handler"
+	"next-go-sample/internal/service"
+	"next-go-sample/pkg/graph/generated"
+	"next-go-sample/pkg/graph/resolver"
 
 	gqlhandler "github.com/99designs/gqlgen/graphql/handler"
 	"github.com/99designs/gqlgen/graphql/playground"

@@ -2,7 +2,7 @@ package repository
 
 import (
 	"context"
-	"next-go-task/internal/domain"
+	"next-go-sample/internal/domain"
 )
 
 // SampleRepository defines the interface for sample data access
