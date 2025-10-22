@@ -10,6 +10,9 @@ RUN go mod download
 # Copy source code
 COPY . .
 
+# Generate GraphQL code
+RUN go run github.com/99designs/gqlgen generate --config pkg/graph/gqlgen.yml
+
 # Build the application
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main ./cmd/api
 
