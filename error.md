@@ -28,3 +28,13 @@ go get github.com/99designs/gqlgen@v0.17.81
 
 go mod tidy
 go run github.com/99designs/gqlgen generate
+
+(base) mnitta@MasatonoMacBook-Pro go-app % go run github.com/99designs/gqlgen generate
+
+(base) mnitta@MasatonoMacBook-Pro go-app % go get github.com/99designs/gqlgen/codegen/config@v0.17.81
+go get github.com/99designs/gqlgen/internal/imports@v0.17.81
+go get github.com/99designs/gqlgen/api@v0.17.81
+go get github.com/99designs/gqlgen@v0.17.81
+(base) mnitta@MasatonoMacBook-Pro go-app % go run github.com/99designs/gqlgen generate
+unable to open schema: open schema.graphql: no such file or directory
+exit status 1
