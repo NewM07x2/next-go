@@ -40,3 +40,108 @@ Compose can now delegate builds to bake for better performance.
 ------
 failed to solve: process "/bin/sh -c go mod download" did not complete successfully: exit code: 1
 (base) mnitta@MasatonoMacBook-Pro next-go % 
+
+---
+
+## 🔍 エラー原因
+
+**Goバージョンの不一致**
+
+- `go.mod`ファイルで`go 1.24.0`を要求していた
+- Dockerイメージ(`golang:1.23-alpine`)にインストールされているGoのバージョンは`1.23.12`
+- Go 1.24.0はまだリリースされていない（2024年時点で最新は1.23系）
+
+## ✅ 解決方法
+
+### 方法1: go.modのバージョンを修正（推奨） ✓ **完了**
+
+`go-app/go.mod`を以下のように修正しました:
+
+```diff
+- go 1.24.0
++ go 1.23.0
+```
+
+その後、依存関係を更新:
+
+```bash
+cd go-app
+go mod tidy
+```
+
+### 方法2: Dockerイメージのバージョンを変更（非推奨）
+
+`docker/Dockerfile.backend`のベースイメージを変更:
+
+```diff
+- FROM golang:1.23-alpine AS builder
++ FROM golang:1.24-alpine AS builder  # Go 1.24がリリースされた場合のみ
+```
+
+**注意**: Go 1.24.0は現時点で存在しないため、この方法は使用できません。
+
+### 方法3: GOTOOLCHAINを設定（一時的な対処）
+
+環境変数で自動ダウンロードを許可:
+
+```bash
+export GOTOOLCHAIN=auto
+```
+
+ただし、Dockerビルド時には推奨されません。
+
+## 🧪 検証手順
+
+修正後、以下のコマンドでDockerビルドを確認:
+
+```bash
+docker-compose down
+docker-compose build --no-cache
+docker-compose up -d
+```
+
+正常に起動することを確認:
+
+```bash
+docker-compose ps
+curl http://localhost:8080/api/health
+```
+
+## 📝 追加の警告について
+
+`docker-compose.yml`の以下の警告も修正することをお勧めします:
+
+```
+WARN[0000] the attribute `version` is obsolete
+```
+
+**修正方法**: `docker-compose.yml`の最初の行を削除
+
+```diff
+- version: "3.8"
+  services:
+    ...
+```
+
+Docker Compose v2では`version`属性は不要になりました。
+
+## 🚀 トラブルシューティング
+
+もしまだエラーが発生する場合:
+
+1. **Dockerキャッシュのクリア**:
+   ```bash
+   docker system prune -a
+   ```
+
+2. **go.sumの削除と再生成**:
+   ```bash
+   cd go-app
+   rm go.sum
+   go mod tidy
+   ```
+
+3. **Goのバージョン確認**:
+   ```bash
+   go version
+   ``` 
