@@ -1,0 +1,39 @@
+# Git
+.git
+.gitignore
+
+# Environment
+.env
+.env.local
+
+# Build artifacts
+tmp/
+bin/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test
+*.test
+*.out
+coverage.out
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Go
+vendor/
+
+# Documentation
+docs/
+*.md
+!README.md
+
+# Air
+.air.toml
