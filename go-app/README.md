@@ -134,3 +134,14 @@ docker-compose up -d go-app
 - テストの追加
 - ロギングの強化
 - メトリクスとトレーシング
+
+# ヘルスチェック
+curl http://localhost:8080/health
+
+# サンプル作成
+curl -X POST http://localhost:8080/api/v1/samples \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Test Sample"}'
+
+# サンプル一覧取得
+curl http://localhost:8080/api/v1/samples
