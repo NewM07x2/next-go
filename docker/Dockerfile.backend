@@ -5,10 +5,13 @@ WORKDIR /app
 
 # Copy go mod files
 COPY go.mod go.sum ./
-RUN go mod download
 
-# Copy source code
+# Copy source code (needed for gqlgen to work properly)
 COPY . .
+
+# Download dependencies and ensure go.sum is up to date
+RUN go mod download
+RUN go mod tidy
 
 # Generate GraphQL code
 RUN go run github.com/99designs/gqlgen generate --config pkg/graph/gqlgen.yml
