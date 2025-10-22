@@ -95,3 +95,12 @@ docker-compose up -d
 0.218 internal/router/router.go:7:2: package next-go-sample/pkg/graph/generated is not in std (/usr/local/go/src/next-go-sample/pkg/graph/generated)
 ------
 failed to solve: process "/bin/sh -c CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main ./cmd/api" did not complete successfully: exit code: 1
+
+
+ => ERROR [go-app builder 7/7] RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo  4.9s
+------
+ > [go-app builder 7/7] RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main ./cmd/api:
+4.849 # next-go-sample/internal/router
+4.849 internal/router/router.go:41:14: cannot use gqlResolver (variable of type *resolver.Resolver) as generated.ResolverRoot value in struct literal: *resolver.Resolver does not implement generated.ResolverRoot (missing method Mutation)
+------
+failed to solve: process "/bin/sh -c CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main ./cmd/api" did not complete successfully: exit code: 1
