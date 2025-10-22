@@ -62,3 +62,19 @@ go run github.com/99designs/gqlgen generate --config pkg/graph/gqlgen.yml
 0.257 internal/router/router.go:7:2: package next-go-sample/pkg/graph/generated is not in std (/usr/local/go/src/next-go-sample/pkg/graph/generated)
 ------
 failed to solve: process "/bin/sh -c CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main ./cmd/api" did not complete successfully: exit code: 1
+
+
+
+ => ERROR [go-app builder 6/7] RUN go run github.com/99designs/gqlgen generate --config pk  0.2s
+------
+ > [go-app builder 6/7] RUN go run github.com/99designs/gqlgen generate --config pkg/graph/gqlgen.yml:
+0.216 /go/pkg/mod/github.com/99designs/gqlgen@v0.17.81/internal/code/packages.go:12:2: missing go.sum entry for module providing package golang.org/x/tools/go/packages (imported by github.com/99designs/gqlgen/codegen/config); to add:
+0.216   go get github.com/99designs/gqlgen/codegen/config@v0.17.81
+0.216 /go/pkg/mod/github.com/99designs/gqlgen@v0.17.81/internal/imports/prune.go:13:2: missing go.sum entry for module providing package golang.org/x/tools/go/ast/astutil (imported by github.com/99designs/gqlgen/internal/imports); to add:
+0.216   go get github.com/99designs/gqlgen/internal/imports@v0.17.81
+0.216 /go/pkg/mod/github.com/99designs/gqlgen@v0.17.81/internal/imports/prune.go:14:2: missing go.sum entry for module providing package golang.org/x/tools/imports (imported by github.com/99designs/gqlgen/api); to add:
+0.216   go get github.com/99designs/gqlgen/api@v0.17.81
+0.216 /go/pkg/mod/github.com/99designs/gqlgen@v0.17.81/main.go:17:2: missing go.sum entry for module providing package github.com/urfave/cli/v2 (imported by github.com/99designs/gqlgen); to add:
+0.216   go get github.com/99designs/gqlgen@v0.17.81
+------
+failed to solve: process "/bin/sh -c go run github.com/99designs/gqlgen generate --config pkg/graph/gqlgen.yml" did not complete successfully: exit code: 1
