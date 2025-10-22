@@ -1,23 +1,19 @@
 # Build stage
-FROM golang:1.24-alpine AS builder
+FROM golang:1.23-alpine AS builder
 
 WORKDIR /app
 
 # Copy go mod files
 COPY go.mod go.sum ./
 
-# Copy source code (needed for gqlgen to work properly)
+# Download dependencies
+RUN go mod download
+
+# Copy source code
 COPY . .
 
-# Download dependencies and ensure go.sum is up to date
-RUN go mod download
-RUN go mod tidy
-
-# Generate GraphQL code
-RUN go run github.com/99designs/gqlgen generate --config pkg/graph/gqlgen.yml
-
 # Build the application
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main ./cmd/api
+RUN CGO_ENABLED=0 GOOS=linux go build -o main main.go
 
 # Runtime stage
 FROM alpine:latest
