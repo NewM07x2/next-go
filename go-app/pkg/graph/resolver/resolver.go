@@ -9,11 +9,11 @@ import (
 )
 
 type Resolver struct {
-	TaskService *service.TaskService
+	SampleService *service.SampleService
 }
 
-func NewResolver(taskService *service.TaskService) *Resolver {
+func NewResolver(sampleService *service.SampleService) *Resolver {
 	return &Resolver{
-		TaskService: taskService,
+		SampleService: sampleService,
 	}
 }

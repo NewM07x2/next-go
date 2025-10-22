@@ -1,43 +1,38 @@
-# GraphQL schema definition for Task Management API
+# GraphQL schema definition for Sample API
 
-type Task {
+type Sample {
   id: ID!
-  title: String!
-  description: String
-  completed: Boolean!
+  name: String!
   createdAt: String!
   updatedAt: String!
 }
 
-input CreateTaskInput {
-  title: String!
-  description: String
+input CreateSampleInput {
+  name: String!
 }
 
-input UpdateTaskInput {
-  title: String
-  description: String
-  completed: Boolean
+input UpdateSampleInput {
+  name: String!
 }
 
 type Query {
-  # Get all tasks
-  tasks: [Task!]!
+  # Get all samples
+  samples: [Sample!]!
   
-  # Get a task by ID
-  task(id: ID!): Task
+  # Get a sample by ID
+  sample(id: ID!): Sample
   
   # Health check
   health: String!
 }
 
 type Mutation {
-  # Create a new task
-  createTask(input: CreateTaskInput!): Task!
+  # Create a new sample
+  createSample(input: CreateSampleInput!): Sample!
   
-  # Update an existing task
-  updateTask(id: ID!, input: UpdateTaskInput!): Task!
+  # Update an existing sample
+  updateSample(id: ID!, input: UpdateSampleInput!): Sample!
   
-  # Delete a task
-  deleteTask(id: ID!): Boolean!
+  # Delete a sample
+  deleteSample(id: ID!): Boolean!
 }

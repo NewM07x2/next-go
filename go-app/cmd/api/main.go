@@ -16,11 +16,11 @@ func main() {
 
 	// Initialize dependencies
 	// TODO: Replace with actual database connection
-	taskRepo := repository.NewInMemoryTaskRepository()
-	taskService := service.NewTaskService(taskRepo)
+	sampleRepo := repository.NewInMemorySampleRepository()
+	sampleService := service.NewSampleService(sampleRepo)
 
 	// Setup router (REST + GraphQL)
-	e := router.Setup(cfg, taskService)
+	e := router.Setup(cfg, sampleService)
 
 	// Start server
 	address := fmt.Sprintf(":%s", cfg.Port)

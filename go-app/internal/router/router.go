@@ -7,14 +7,14 @@ import (
 	"next-go-task/pkg/graph/generated"
 	"next-go-task/pkg/graph/resolver"
 
-	"github.com/99designs/gqlgen/graphql/handler"
+	gqlhandler "github.com/99designs/gqlgen/graphql/handler"
 	"github.com/99designs/gqlgen/graphql/playground"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 )
 
 // Setup configures and returns the Echo router with REST and GraphQL support
-func Setup(cfg *config.Config, taskService *service.TaskService) *echo.Echo {
+func Setup(cfg *config.Config, sampleService *service.SampleService) *echo.Echo {
 	e := echo.New()
 
 	// Middleware
@@ -28,19 +28,16 @@ func Setup(cfg *config.Config, taskService *service.TaskService) *echo.Echo {
 
 	// REST API Handlers
 	healthHandler := handler.NewHealthHandler()
-	taskHandler := handler.NewTaskHandler()
 
 	// REST API Routes
 	api := e.Group("/api")
 	{
 		api.GET("/health", healthHandler.Check)
-		api.GET("/tasks", taskHandler.GetAll)
-		api.POST("/tasks", taskHandler.Create)
 	}
 
 	// GraphQL Setup
-	gqlResolver := resolver.NewResolver(taskService)
-	gqlServer := handler.NewDefaultServer(generated.NewExecutableSchema(generated.Config{
+	gqlResolver := resolver.NewResolver(sampleService)
+	gqlServer := gqlhandler.NewDefaultServer(generated.NewExecutableSchema(generated.Config{
 		Resolvers: gqlResolver,
 	}))
 
@@ -59,8 +56,6 @@ func Setup(cfg *config.Config, taskService *service.TaskService) *echo.Echo {
 
 	// Legacy REST endpoints (for backward compatibility)
 	e.GET("/health", healthHandler.Check)
-	e.GET("/tasks", taskHandler.GetAll)
-	e.POST("/tasks", taskHandler.Create)
 
 	return e
 }
