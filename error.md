@@ -78,3 +78,12 @@ failed to solve: process "/bin/sh -c CGO_ENABLED=0 GOOS=linux go build -a -insta
 0.216   go get github.com/99designs/gqlgen@v0.17.81
 ------
 failed to solve: process "/bin/sh -c go run github.com/99designs/gqlgen generate --config pkg/graph/gqlgen.yml" did not complete successfully: exit code: 1
+
+go get github.com/99designs/gqlgen/codegen/config@v0.17.81
+go get github.com/99designs/gqlgen/internal/imports@v0.17.81
+go get github.com/99designs/gqlgen/api@v0.17.81
+go get github.com/99designs/gqlgen@v0.17.81
+go mod tidy
+
+docker-compose build --no-cache
+docker-compose up -d
