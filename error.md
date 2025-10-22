@@ -19,3 +19,12 @@ go run github.com/99designs/gqlgen generate
         go get github.com/99designs/gqlgen/api@v0.17.81
 ../../../go/pkg/mod/github.com/99designs/gqlgen@v0.17.81/main.go:17:2: missing go.sum entry for module providing package github.com/urfave/cli/v2 (imported by github.com/99designs/gqlgen); to add:
         go get github.com/99designs/gqlgen@v0.17.81
+
+
+go get github.com/99designs/gqlgen/codegen/config@v0.17.81
+go get github.com/99designs/gqlgen/internal/imports@v0.17.81
+go get github.com/99designs/gqlgen/api@v0.17.81
+go get github.com/99designs/gqlgen@v0.17.81
+
+go mod tidy
+go run github.com/99designs/gqlgen generate
