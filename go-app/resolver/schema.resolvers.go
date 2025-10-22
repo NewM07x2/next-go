@@ -7,18 +7,18 @@ package resolver
 import (
 	"context"
 	"fmt"
-	"next-go-sample/generated"
 	"next-go-sample/internal/domain"
-	"next-go-sample/model"
+	generated1 "next-go-sample/pkg/graph/generated"
+	model1 "next-go-sample/pkg/graph/model"
 )
 
 // CreateSample is the resolver for the createSample field.
-func (r *mutationResolver) CreateSample(ctx context.Context, input model.CreateSampleInput) (*domain.Sample, error) {
+func (r *mutationResolver) CreateSample(ctx context.Context, input model1.CreateSampleInput) (*domain.Sample, error) {
 	panic(fmt.Errorf("not implemented: CreateSample - createSample"))
 }
 
 // UpdateSample is the resolver for the updateSample field.
-func (r *mutationResolver) UpdateSample(ctx context.Context, id string, input model.UpdateSampleInput) (*domain.Sample, error) {
+func (r *mutationResolver) UpdateSample(ctx context.Context, id string, input model1.UpdateSampleInput) (*domain.Sample, error) {
 	panic(fmt.Errorf("not implemented: UpdateSample - updateSample"))
 }
 
@@ -52,14 +52,14 @@ func (r *sampleResolver) UpdatedAt(ctx context.Context, obj *domain.Sample) (str
 	panic(fmt.Errorf("not implemented: UpdatedAt - updatedAt"))
 }
 
-// Mutation returns generated.MutationResolver implementation.
-func (r *Resolver) Mutation() generated.MutationResolver { return &mutationResolver{r} }
+// Mutation returns generated1.MutationResolver implementation.
+func (r *Resolver) Mutation() generated1.MutationResolver { return &mutationResolver{r} }
 
-// Query returns generated.QueryResolver implementation.
-func (r *Resolver) Query() generated.QueryResolver { return &queryResolver{r} }
+// Query returns generated1.QueryResolver implementation.
+func (r *Resolver) Query() generated1.QueryResolver { return &queryResolver{r} }
 
-// Sample returns generated.SampleResolver implementation.
-func (r *Resolver) Sample() generated.SampleResolver { return &sampleResolver{r} }
+// Sample returns generated1.SampleResolver implementation.
+func (r *Resolver) Sample() generated1.SampleResolver { return &sampleResolver{r} }
 
 type mutationResolver struct{ *Resolver }
 type queryResolver struct{ *Resolver }
