@@ -29,7 +29,7 @@
    プロジェクトがすでに初期化されている場合はスキップしてください。
 
    ```bash
-   go mod init next-go-task
+   go mod init next-go-sample
    ```
 
 3. **依存関係のインストール**

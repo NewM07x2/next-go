@@ -13,7 +13,7 @@ services:
       - DB_HOST=next-go-db
       - DB_USER=${DB_USER:-postgres}
       - DB_PASSWORD=${DB_PASSWORD:-postgres}
-      - DB_NAME=${DB_NAME:-next-go-task-db}
+      - DB_NAME=${DB_NAME:-next-go-sample-db}
       - FRONTEND_URL=${FRONTEND_URL:-http://localhost:3000}
     depends_on:
       - db
@@ -39,10 +39,10 @@ services:
     environment:
       POSTGRES_USER: ${DB_USER:-postgres}
       POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
-      POSTGRES_DB: ${DB_NAME:-next-go-task-db}
+      POSTGRES_DB: ${DB_NAME:-next-go-sample-db}
     volumes:
-      - next-go-task-db_data:/var/lib/postgresql/data
-      - ./DB:/docker-entrypoint-initdb.d
+      - next-go-sample-db_data:/var/lib/postgresql/data
+      - ./DB/init.sql:/docker-entrypoint-initdb.d/init.sql
 
 volumes:
-  next-go-task-db_data:
+  next-go-sample-db_data:

@@ -1,6 +1,6 @@
 # 概要
 
-このアプリケーションは、タスクを管理するためのシステム(next-go-task)です。  
+このアプリケーションは、サンプルアプリケーション(next-go-sample)です。  
 ユーザーは新規登録、ログイン、タスクの登録・閲覧・編集・削除が可能です。
 
 ---
@@ -22,7 +22,7 @@
 
 ```bash
 git clone <リポジトリのURL>
-cd next-go-task
+cd next-go-sample
 ```
 
 ### 2. Dockerコンテナの起動
@@ -34,7 +34,7 @@ docker-compose up --build -d
 ### 3. サーバーサイドの初期設定
 
 ```bash
-docker-compose exec go-app go mod init next-go-task
+docker-compose exec go-app go mod init next-go-sample
 docker-compose exec go-app go mod tidy
 ```
 
@@ -51,7 +51,7 @@ exit
 PostgreSQLの初期化スクリプトを実行します。
 
 ```bash
-docker-compose exec db psql -U postgres -d next-go-task-db_data -f /docker-entrypoint-initdb.d/init.sql
+docker-compose exec db psql -U postgres -d next-go-sample-db_data -f /docker-entrypoint-initdb.d/init.sql
 ```
 
 ### 6. キャッシュのクリア
