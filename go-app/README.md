@@ -223,3 +223,30 @@ tmp_dir = "tmp"
 ---
 
 これで Docker コンテナ上での Go 環境のセットアップと API サーバーの動作確認が完了します。
+
+
+🚀 次にやること
+
+依存関係のインストール
+```
+cd c:\Users\masato.nitta\mnitta\my-devlop\next-go\go-app
+go get github.com/99designs/gqlgen@latest
+go get github.com/99designs/gqlgen/graphql/handler
+go get github.com/99designs/gqlgen/graphql/playground
+go mod tidy
+```
+
+GraphQLコードの生成
+```
+cd pkg/graph
+go run github.com/99designs/gqlgen generate
+```
+
+リゾルバーの実装
+```
+pkg/graph/resolver/schema.resolvers.go を編集
+```
+
+サーバー起動
+```
+go run cmd/api/main.go
