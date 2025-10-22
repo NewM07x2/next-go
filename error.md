@@ -41,3 +41,8 @@ Compose can now delegate builds to bake for better performance.
 ------
 failed to solve: process "/bin/sh -c go mod download" did not complete successfully: exit code: 1
 (base) mnitta@MasatonoMacBook-Pro next-go %
+
+
+docker-compose build --no-cache
+docker-compose up -d
+go mod tidy
