@@ -38,3 +38,8 @@ go get github.com/99designs/gqlgen@v0.17.81
 (base) mnitta@MasatonoMacBook-Pro go-app % go run github.com/99designs/gqlgen generate
 unable to open schema: open schema.graphql: no such file or directory
 exit status 1
+
+
+(base) mnitta@MasatonoMacBook-Pro go-app % go run github.com/99designs/gqlgen generate
+unable to open schema: open schema.graphql: no such file or directory
+exit status 1
